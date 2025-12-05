@@ -1,0 +1,10 @@
+node_modules/
+dist/
+build/
+.cache/
+coverage/
+.vscode/
+.DS_Store
+*.min.js
+# ignore input/data files used by puzzles
+**/part*input*.txt
