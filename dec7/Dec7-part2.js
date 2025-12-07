@@ -8,7 +8,6 @@ const rawInput = fs.readFileSync(inputPath, 'utf8');
 const lines = rawInput.replace(/\r/g, '').split("\n");
 
 var currentTachyons = [{ line: lines[0].indexOf("S"), value: 1 }]
-var currentTachyonsCount = []
 console.log(lines[0][currentTachyons])
 let result = 0;
 let drawing = [lines[0]]
@@ -59,6 +58,6 @@ currentTachyons.forEach(x => result += x.value)
 console.log("Result:", result)
 
 function replaceAt(text, index, replacement) {
-    return text.substring(0, index) + replacement + text.substring(index + replacement.length);
+    return text.substring(0, index) + replacement[0] + text.substring(index + 1);
 
 }
