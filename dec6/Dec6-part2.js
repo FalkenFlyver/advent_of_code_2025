@@ -105,4 +105,4 @@ for (let op in operatorsList) {
     }
 
 }
-console.log("part 1 result: " + result);
+console.log("part 2 result: " + result);
