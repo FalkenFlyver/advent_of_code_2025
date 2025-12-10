@@ -11,6 +11,7 @@ const { pointInPolygon, rectangleFullyInPolygon } = require('../utils');
 
 
 let candidates = [];
+const tStart = Date.now();
 for (let pos1idx = 0; pos1idx < lines.length; pos1idx++) {
     const pos1 = lines[pos1idx];
     for (let pos2idx = 0; pos2idx < lines.length; pos2idx++) {
@@ -50,6 +51,9 @@ if (!found) {
 } else {
     console.log("part2: (" + found.pos1 + ": " + lines[found.pos1] + "), (" + found.pos2 + ": " + lines[found.pos2] + "), area: " + found.area)
 }
+const tEnd = Date.now();
+const elapsedMs = tEnd - tStart;
+console.log('Time to find result: ' + elapsedMs + ' ms (' + (elapsedMs / 1000).toFixed(3) + ' s)');
 function calculateArea(pos1, pos2) {
     let distanceX = Math.abs(pos1[0] - pos2[0]) + 1
     let distanceY = Math.abs(pos1[1] - pos2[1]) + 1

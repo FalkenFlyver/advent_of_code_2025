@@ -7,6 +7,7 @@ const rawInput = fs.readFileSync(inputPath, 'utf8');
 
 const lines = rawInput.split(/[\r\n]+/).map((x, xi) => x.split(',').map(Number))
 
+const tStart = Date.now();
 
 const allAreas = []
 for (let pos1idx in lines) {
@@ -17,8 +18,11 @@ for (let pos1idx in lines) {
     }
 }
 function calculateArea(pos1, pos2) {
-    let distanceX = Math.abs(pos1[0] - pos2[0] + 1)
-    let distanceY = Math.abs(pos1[1] - pos2[1] + 1)
+    let distanceX = Math.abs(pos1[0] - pos2[0]) + 1
+    let distanceY = Math.abs(pos1[1] - pos2[1]) + 1
     return distanceX * distanceY
 }
 console.log("part1: " + allAreas.sort((a, b) => b.area - a.area)[0].area)
+const tEnd = Date.now();
+const elapsedMs = tEnd - tStart;
+console.log('Time to find result: ' + elapsedMs + ' ms (' + (elapsedMs / 1000).toFixed(3) + ' s)');
